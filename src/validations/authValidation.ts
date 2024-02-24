@@ -18,7 +18,9 @@ export const authValidation = {
     next: NextFunction
   ) => {
     try {
+      console.debug(req.body);
       if (!req.body.email || !req.body.password) {
+        console.debug("email or password missing")
         return res.status(StatusCodes.BAD_REQUEST).json({
           message: ReasonPhrases.BAD_REQUEST,
           status: StatusCodes.BAD_REQUEST
@@ -35,6 +37,7 @@ export const authValidation = {
         !normalizedEmail ||
         !validator.isEmail(normalizedEmail, { allow_utf8_local_part: false })
       ) {
+        console.debug("not email")
         return res.status(StatusCodes.BAD_REQUEST).json({
           message: ReasonPhrases.BAD_REQUEST,
           status: StatusCodes.BAD_REQUEST
@@ -45,6 +48,7 @@ export const authValidation = {
 
       return next()
     } catch (error) {
+      console.debug(error)
       winston.error(error)
 
       return res.status(StatusCodes.BAD_REQUEST).json({
@@ -60,11 +64,13 @@ export const authValidation = {
     next: NextFunction
   ) => {
     try {
+      console.debug("Sign up -> ", req.body)
       if (
         !req.body.email ||
         !req.body.password ||
         !validator.isLength(req.body.password, { min: 6, max: 48 })
       ) {
+        console.debug("email or password is wrong")
         return res.status(StatusCodes.BAD_REQUEST).json({
           message: ReasonPhrases.BAD_REQUEST,
           status: StatusCodes.BAD_REQUEST
@@ -81,6 +87,7 @@ export const authValidation = {
         !normalizedEmail ||
         !validator.isEmail(normalizedEmail, { allow_utf8_local_part: false })
       ) {
+        console.debug("not an email")
         return res.status(StatusCodes.BAD_REQUEST).json({
           message: ReasonPhrases.BAD_REQUEST,
           status: StatusCodes.BAD_REQUEST
@@ -92,7 +99,7 @@ export const authValidation = {
       return next()
     } catch (error) {
       winston.error(error)
-
+      console.debug(error)
       return res.status(StatusCodes.BAD_REQUEST).json({
         message: ReasonPhrases.BAD_REQUEST,
         status: StatusCodes.BAD_REQUEST

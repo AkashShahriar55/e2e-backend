@@ -1,9 +1,3 @@
-# [express-mongodb-rest-api-typescript-boilerplate](https://github.com/watscho/express-mongodb-rest-api-boilerplate)
-
-[![](https://img.shields.io/badge/author-@watscho-blue.svg)](https://www.linkedin.com/in/watscho)
-[![](https://api.codacy.com/project/badge/Grade/f4ea86b0cf474e928d34f3723aed349e)](https://app.codacy.com/gh/watscho/express-mongodb-rest-api-boilerplate)
-[![GitHub license](https://img.shields.io/github/license/watscho/express-mongodb-rest-api-boilerplate)](https://github.com/watscho/express-mongodb-rest-api-boilerplate/blob/master/LICENSE)
-
 ## Authentication from scratch `TypeScript`
 
 - Sign In
@@ -247,8 +241,3 @@ If you're looking for an easy-to-use tool to test your email SMTP functionality,
 └── yarn.lock
 ```
 
-**Note:** For any question [issues](https://github.com/watscho/express-mongodb-rest-api-boilerplate/issues)
-
-## License
-
-This project is an open-source with an [MIT License](https://github.com/watscho/express-mongodb-rest-api-boilerplate/blob/master/LICENSE)

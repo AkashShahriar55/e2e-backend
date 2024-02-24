@@ -52,6 +52,7 @@ export const authController = {
         status: StatusCodes.OK
       })
     } catch (error) {
+      console.debug(error)
       winston.error(error)
 
       return res.status(StatusCodes.BAD_REQUEST).json({
@@ -132,7 +133,7 @@ export const authController = {
       })
     } catch (error) {
       winston.error(error)
-
+      console.debug(error)
       if (session.inTransaction()) {
         await session.abortTransaction()
         session.endSession()
